@@ -1,4 +1,37 @@
+$('#start').on('click',function(){
+ 	$('#start').remove();
 
+for (var i = 0; i < quiz.length; i++) {
+	//creating a list item that holds my questions
+		var listItem = document.createElement('li');
+
+		listItem.innerHTML=quiz[i].question;
+	
+
+
+
+//appending my list item to my ordered list
+		var orderedList= document.getElementById('orderedList');
+		orderedList.appendChild(listItem);
+	
+
+		for (var j = 0; j < quiz[i].choices.length; j++) {
+			//creating input and a label
+		var input = document.createElement('input');
+		input.type = "radio";
+		input.value = quiz[i].choices[j];
+		input.after = quiz[i].choices[j]
+		var label = document.createElement('label');
+		label.innerHTML = quiz[i].choices[j];
+		
+//appending input and label to my ordered list
+		orderedList.appendChild(input);
+		orderedList.appendChild(label);
+	
+		}
+
+}
+})
 
 
 var quiz= [
@@ -30,32 +63,6 @@ var quiz= [
 		,correctAnswer:1
 		}
 		];
-
-		
-
-for (var i = 0; i < quiz.length; i++) {
-	//creating a list item that holds my questions
-		var listItem = document.createElement('li');
-
-		listItem.innerHTML=quiz[i].question;
-//appending my list item to my ordered list
-		var orderedList= document.getElementById('orderedList');
-		orderedList.appendChild(listItem);
-
-		for (var j = 0; j < quiz[i].choices.length; j++) {
-			//creating input and a label
-		var input = document.createElement('input');
-		input.type = "radio";
-		input.value = quiz[i].choices[j];
-		input.after = quiz[i].choices[j]
-		var label = document.createElement('label');
-		label.innerHTML = quiz[i].choices[j];
-//appending input and label to my ordered list
-		orderedList.appendChild(input);
-		orderedList.appendChild(label);
-		}
-
-}
 
 
 
